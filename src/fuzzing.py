@@ -88,7 +88,7 @@ class Fuzzing(object):
     
     def start(self):
         #Read the DMF list and the list of blocked controls
-        self.dmf_list=self.util.get_dmf(self.root_path+"/dmf/")
+        self.dmf_list=self.util.get_dmf(self.root_path+"/dmf_datas/")
         self.keyview_list=self.util.get_keyview(self.root_path)
         self.noresponse_list=[]
 

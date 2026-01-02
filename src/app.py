@@ -1,10 +1,12 @@
+from androguard.core.bytecodes.apk import APK
+
 class App(object):
 
     def __init__(self, app_path):
         assert app_path is not None
         self.app_path = app_path
 
-        from androguard.core.bytecodes.apk import APK
+        # from androguard.core.bytecodes.apk import APK
         self.apk = APK(self.app_path)
         self.package_name = self.apk.get_package()
         self.main_activity = self.apk.get_main_activity()

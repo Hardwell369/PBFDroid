@@ -1,8 +1,7 @@
 import os, signal, time
-import subprocess
 import pyperclip
 from device import Device
-import demjson
+import json as js
 from view import View
 
 class Record(object):
@@ -452,7 +451,7 @@ class Record(object):
             views.append({"name": "pre"+str(j)+"_widget","UI_layout_num":"0","text": "","resource-id": "","class": "","content-desc": "","xpath": "","instance": ""})
             j=j+1
         data = {"widgets": views,"events":events,"impacts":results,"preconditions":preconditions,"name":name,"type":type,"datatype":datatype,"post-conditions":postconditions,"proportion":"10"}
-        json = demjson.encode(data)
+        json = js.dumps(data, ensure_ascii=False)
         print(json)
         f = open(self.root_path+"/test.json",'w',encoding='utf-8')
         f.write(json)
@@ -463,14 +462,14 @@ class Record(object):
         if not os.path.exists(self.root_path+"keyviews"+self.json_name+".json"):
             f = open(self.root_path+"keyviews"+self.json_name+".json",'w',encoding='utf-8')
             keyviews = {"keyviews": [{"view": "<node NAF=\"#any#\" index=\"#any#\" text=\"#any#\" resource-id=\"inputbyyourself\" class=\"#any#\" package=\"#any#\" content-desc=\"#any#\" checkable=\"#any#\" checked=\"#any#\" clickable=\"#any#\" enabled=\"#any#\" focusable=\"#any#\" focused=\"#any#\" scrollable=\"#any#\" long-clickable=\"#any#\" password=\"#any#\" selected=\"#any#\" visible-to-user=\"#any#\" bounds=\"\" />"},]}
-            json = demjson.encode(keyviews)
+            json = js.dumps(keyviews, ensure_ascii=False)
             f.write(json)
             f.flush()
             f.close()
         if not os.path.exists(self.root_path+"dmf"+self.json_name+".json"):
             f = open(self.root_path+"dmf"+self.json_name+".json",'w',encoding='utf-8')
             aifs = {"dmfs":[]}
-            json = demjson.encode(aifs)
+            json = js.dumps(aifs, ensure_ascii=False)
             f.write(json)
             f.flush()
             f.close()

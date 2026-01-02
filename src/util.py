@@ -93,7 +93,7 @@ class Util(object):
 
     def get_keyview(self,root_path):
         keyview_list = []
-        with open(os.path.join(root_path+"/dmf/"+self.json_name+"/keyviews"+self.json_name+".json"), 'r') as f:
+        with open(os.path.join(root_path+"/dmf_datas/"+self.json_name+"/keyviews"+self.json_name+".json"), 'r') as f:
             data = json.load(f)
         for nowview in data['keyviews']:
             print(nowview['view'])
